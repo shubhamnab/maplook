@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.phonegap.lookaround"
+        version     = "1.0.0"
+        versionCode = "10" >
+
+        <!-- versionCode is optional and Android only -->
+
+        <preference name="phonegap-version" value="3.6.3" />
+
+        <name>Map LookAround</name>
+
+        <description>
+        Its a puzzle game. 
+        </description>
+
+        <author href="http://www.webflax.in/" email="shubhamjaiswal1860@gmail.com">
+        Shubham Jaiswal
+        </author>
+		<gap:plugin name="org.apache.cordova.splashscreen" />
+		
+		<icon src="favicon.png" />
+    <icon src="favicon.png"   gap:platform="android"    gap:density="ldpi" />
+    <icon src="favicon.png"   gap:platform="android"    gap:density="mdpi" />
+    <icon src="favicon.png"   gap:platform="android"    gap:density="hdpi" />
+    <icon src="favicon.png"  gap:platform="android"    gap:density="xhdpi" />
+    <icon src="favicon.png"  gap:platform="winphone" />
+    <gap:splash src="splash.png" gap:platform="android" gap:qualifier="land-hdpi" />
+<gap:splash src="splash.png" gap:platform="android" gap:qualifier="land-ldpi" />
+<gap:splash src="splash.png" gap:platform="android" gap:qualifier="land-mdpi" />
+<gap:splash src="splash.png" gap:platform="android" gap:qualifier="land-xhdpi" />
+
+<gap:splash src="splash.png" gap:platform="android" gap:qualifier="port-hdpi" />
+<gap:splash src="splash.png" gap:platform="android" gap:qualifier="port-ldpi" />
+<gap:splash src="splash.png" gap:platform="android" gap:qualifier="port-mdpi" />
+<gap:splash src="splash.png" gap:platform="android" gap:qualifier="port-xhdpi" />
+
+    </widget>

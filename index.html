@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" ng-app="lookAroundApp">
+<head>
+  <meta charset="utf-8">
+  <title>LookAround - Angular JS Learning Example App</title>
+  <!-- need to change these to local -->
+  <link href="css/normalize.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body ng-controller="MainCtrl" class="zipcode-{{applied()}}">
+  <!-- View placeholder -->
+  <div ng-view></div>
+  <div class="loading-indicator">
+    <div class='text'> Loading ... </div>
+  </div>
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular/angular-cookies.js"></script>
+  <script src="lib/angular/angular-cookies.min.js"></script>
+  <script src="lib/angular/angular-loader.js"></script>
+  <script src="lib/angular/angular-loader.min.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
+  <script src="lib/angular/angular-resource.min.js"></script>
+  <script src="lib/angular/angular-sanitize.js"></script>
+  <script src="lib/angular/angular-sanitize.min.js"></script>
+  
+  <script src="lib/bootstrap/bootstrap.min.js"></script>
+  <script src="lib/bootstrap/ui-bootstrap-0.6.0.min.js"></script>
+  <script src="lib/bootstrap/ui-bootstrap.min.js"></script>
+  <script src="lib/bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false&key=AIzaSyBj4Dk1k7X-tyg1eKBjL-UG4m720rqcdr0"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/utils.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','js/analytics.js','ga');
+
+    ga('create', 'UA-10379928-16', 'lookaround.herokuapp.com');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
