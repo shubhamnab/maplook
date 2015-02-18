@@ -10,8 +10,12 @@
 	                <button type="submit" class="btn btn-primary" value="GO" ng-disabled="zipCodeFrm.$invalid" ng-click="sendZip(zipCode)">GO</button>
 				  <!-- </div> -->
 				</form>
+				<div class="pull-right" ng-controller="AboutDialogCtrl" style="margin-right: 70px">
+				<iframe width="85" height="20" src="//ghbtns.com/github-btn.html?user=shidhincr&repo=lookAround&type=watch&count=true" frameborder="0" scrolling="0" allowtransparency="true" style="vertical-align:middle"></iframe>
+				
+				</div>
 				<div ng-hide="!searchplace" class="show-searchplace">
-					<h2>{{searchplace}}</h2>
+					<h2>Results near {{searchplace}}</h2>
 				</div>
 			</div>
 		</div>
@@ -35,7 +39,9 @@
 		</div>
 		<div class="span9" ng-controller="ResultsTabCtrl">
 			<tabset>
-				
+				<tab heading="Map View" active="tabs.map">
+					<div id="mapContainer" style="width: 100%;height:700px;" gmap data="data"></div>
+				</tab>
 				<tab heading="List View" active="tabs.list">
 					<table class="table table-striped table-hover">
 						<thead>
@@ -57,9 +63,6 @@
 							</tr>
 						</tbody>
 					</table>
-				</tab>
-				<tab heading="Map View" active="tabs.map">
-					<div id="mapContainer" style="width: 100%;height:700px;" gmap data="data"></div>
 				</tab>
 			</tabset>
 		</div>
