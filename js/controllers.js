@@ -4,16 +4,7 @@
 
 angular.module("lookAroundApp.controllers", [ ])
     
-    /**
-     * [ZipCodeFrmCtrl]
-     * Responsible for updating the route whenever zipcode is changed
-     * appears in the first page,  and the header
-     * 
-     * @param  {[type]} $scope
-     * @param  {[type]} $location
-     * @param  {[type]} $routeParams
-     * @return {[type]}
-     */
+    
     .controller("ZipCodeFrmCtrl", function ($scope, $location, $routeParams) {
         var placeurl = $routeParams.place || "";
         $scope.sendZip = function (zipcode) {
@@ -21,24 +12,7 @@ angular.module("lookAroundApp.controllers", [ ])
         };
     })
 
-    /**
-     * [SearchCtrl]
-     * This controller is responsible for the main search in the view
-     * 
-     * - It first gets the zip code from the route params and check for the place data
-     * - default place type is 'atm'
-     * - it then gets the map latitude and longitude from the zipcode ( using Google GeoCoder )
-     * - using the places Api, it will fetch the data for the given place type ( 'atm|bar|bus-station' ..etc)
-     * - and renders the map using this data
-     * 
-     * @param  {[type]} $scope
-     * @param  {[type]} $routeParams
-     * @param  {[type]} $location
-     * @param  {[type]} googleMap
-     * @param  {[type]} $http
-     * @param  {[type]} $filter
-     * @return {[type]}
-     */
+   
     .controller("SearchCtrl", function ($scope, $routeParams, $location, googleMap, $http, $filter) {
         $scope.zipCode = $routeParams.zipcode;
         $scope.place = $routeParams.place;
@@ -48,37 +22,22 @@ angular.module("lookAroundApp.controllers", [ ])
             $location.path("/");
         }
 
-        /* 
-        Gets the default place types
-        @TODO: this should go to a resolve object
-        */
+        
         $http.get("data/places.json").success(function (results) {
             $scope.places = results.data;
         });
         
-        /**
-         * [getUrl get the url for different type of places ]
-         * @param  {string} placeurl
-         * @return {string}
-         */
+        
         $scope.getUrl = function (placeurl) {
             return "#/search/" + $scope.zipCode + placeurl;
         };
         
-        /*
-        Simple utility method to set the active class
-         */
+        
         $scope.activeClass = function (place) {
             return place.url.slice(1).toLowerCase() === $scope.place ? "active" : "";
         };
         
-        /**
-         * Method for finding out the place name for the search results
-         * Used to show in the header
-         * 
-         * @param  {[type]} details
-         * @return {[type]}
-         */
+        
         $scope.getLocation = function (details) {
             var location = ( details && details.geometry && details.geometry.location ),
                 out = [ ];
@@ -131,17 +90,7 @@ angular.module("lookAroundApp.controllers", [ ])
 
     })
     
-    /**
-     * [ResultsTabCtrl]
-     * Controller resposible for the map view and list view tabs.
-     * 
-     * @param  {[type]} $scope
-     * @param  {[type]} $routeParams
-     * @param  {[type]} $location
-     * @param  {[type]} googleMap
-     * @param  {[type]} scrollToElem
-     * @return {[type]}
-     */
+   
     .controller("ResultsTabCtrl", function ($scope, $routeParams, $location, googleMap, scrollToElem) {
         $scope.tabs = {
             "map": false,
@@ -171,10 +120,7 @@ angular.module("lookAroundApp.controllers", [ ])
             googleMap.bounceMarker(num);
         }
 
-        /*
-        Watches for any click inside the map markers, and switches to the list view.
-        Also scroll down the details of the selected marker in the list.
-         */
+       
         $scope.$watch(function () {
             return googleMap.selectedMarkerIdx;
         }, function (newVal) {
@@ -192,14 +138,7 @@ angular.module("lookAroundApp.controllers", [ ])
         });
     })
     
-    /**
-     * [MainCtrl]
-     * @param  {[type]} $scope
-     * @param  {[type]} $routeParams
-     * @param  {[type]} $location
-     * @param  {[type]} $window
-     * @return {[type]}
-     */
+   
     .controller("MainCtrl", function ($scope, $routeParams, $location, $window) {
         // checks if the url contains any valid zipcode
         $scope.applied = function () {
